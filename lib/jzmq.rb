@@ -5,10 +5,6 @@ end
 
 require 'java'
 
-###
-#   This a jruby convenience library to use the JNI based zmq java classes.
-#   It also tries to be a drop in replacement for ffi-zmq
-###
 require File.join("jzmq","zmq.jar")
 
 ZMQ = Java::OrgZeromq::ZMQ

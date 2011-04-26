@@ -19,6 +19,19 @@ Look at how the symlinking is done for zmq.so
 
 The zmq.jar java code uses JNI to interact with libjzmq.so (symlink)
 
+== PERFORMANCE
+
+jzmq vs ffi-jzmq
+publish 10_000 hello_world strings to a subscribe socket in another thread using tcp
+
+jzmq
+                     user     system      total        real
+100000 times:    0.293000   0.000000   0.293000 (  0.293000)
+
+ffi-jzmq
+                     user     system      total        real
+100000 times:    1.581000   0.000000   1.581000 (  1.581000)
+
 == LICENSE:
 
 (The MIT License)
