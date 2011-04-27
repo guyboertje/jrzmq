@@ -22,7 +22,7 @@ The zmq.jar java code uses JNI to interact with libjzmq.so (symlink)
 == PERFORMANCE
 
 jzmq vs ffi-jzmq
-publish 10_000 hello_world strings to a subscribe socket in another thread using tcp
+publish 100_000 hello_world strings to a subscribe socket in another thread using tcp
 
 jzmq
                      user     system      total        real
