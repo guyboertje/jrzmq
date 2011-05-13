@@ -8,6 +8,7 @@ require 'java'
 require File.join("jzmq","zmq.jar")
 
 ZMQ = Java::OrgZeromq::ZMQ
+ZMQQueue = Java::OrgZeromq::ZMQQueue
 
 %W(context socket exception).each do |file|
   require File.join("jzmq",file)
