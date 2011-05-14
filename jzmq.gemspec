@@ -2,7 +2,7 @@
 
 spec = Gem::Specification.new do |s|
   s.name = 'jzmq'
-  s.version = '0.0.2'
+  s.version = '0.0.3'
   s.authors = ['Guy Boertje']
   s.email = 'gboertje@gowebtop.com'
   s.date = '2011-04-25'
@@ -16,4 +16,3 @@ spec = Gem::Specification.new do |s|
   s.test_files = []
   s.has_rdoc = false
 end
-
