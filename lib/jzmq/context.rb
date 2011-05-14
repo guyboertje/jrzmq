@@ -1,7 +1,7 @@
 class ZMQ
   class Context
     def self.new(*args)
-       ZMQ.context(args.first)
+       ZMQ.context(args.first || 1)
     end
     def initialize(*args)
     end
