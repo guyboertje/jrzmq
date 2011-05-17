@@ -1,5 +1,4 @@
-jzmq
-    by Guy Boertje
+jzmq by Guy Boertje
 
 == DESCRIPTION:
 
@@ -8,7 +7,7 @@ It also tries to be a drop in replacement for ffi-zmq
 
 == REQUIREMENTS:
 
-  * 0mq 2.1.0 or newer
+* 0mq 2.1.0 or newer
 
 The ZeroMQ library must be installed on your system in a well-known location
 like /usr/local/lib. This is the default for new ZeroMQ installs.
@@ -25,12 +24,12 @@ jzmq vs ffi-jzmq
 publish 100_000 hello_world strings to a subscribe socket in another thread using tcp
 
 jzmq
-                     user     system      total        real
-100000 times:    0.293000   0.000000   0.293000 (  0.293000)
+                       user     system      total        real
+  100000 times:    0.293000   0.000000   0.293000 (  0.293000)
 
 ffi-jzmq
-                     user     system      total        real
-100000 times:    1.581000   0.000000   1.581000 (  1.581000)
+                       user     system      total        real
+  100000 times:    1.581000   0.000000   1.581000 (  1.581000)
 
 == LICENSE:
 
