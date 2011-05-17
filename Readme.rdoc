@@ -13,8 +13,12 @@ The ZeroMQ library must be installed on your system in a well-known location
 like /usr/local/lib. This is the default for new ZeroMQ installs.
 
 You must copy the libjzmq.so.0.0.0 library from the ext_bin folder to the
-same place as the ZeroMQ library and symlink it in the same way.
-Look at how the symlinking is done for zmq.so
+same place as the ZeroMQ library (libzmq.so.1.0.0) and symlink it in the same way.
+Look at how the symlinking is done for libzmq.so.1.0.0
+
+libjzmq.so.0.0.0 was compiled on an amd 64 bit ubuntu box.  If you get errors
+you will have to compile it yourself. You will need to git clone the source
+repo git://github.com/zeromq/jzmq.git
 
 The zmq.jar java code uses JNI to interact with libjzmq.so (symlink)
 
@@ -27,7 +31,7 @@ jzmq
                        user     system      total        real
   100000 times:    0.293000   0.000000   0.293000 (  0.293000)
 
-ffi-jzmq
+ffi-zmq
                        user     system      total        real
   100000 times:    1.581000   0.000000   1.581000 (  1.581000)
 
