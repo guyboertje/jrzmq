@@ -1,7 +1,9 @@
 class ZMQ
   class Message
+    attr_reader :error
     def initialize
       @buffer = []
+      @error = false
     end
     def unshift part
       @buffer.unshift part
@@ -35,9 +37,15 @@ class ZMQ
 
     def read(socket)
       @buffer.clear
-      @buffer << socket.recv_string
-      while socket.more_parts? do
-        @buffer << socket.recv_string
+      loop do
+        part = socket.recv_string
+        if part.nil?
+          @error = true
+          @buffer.clear
+          break
+        end
+        @buffer << part
+        break unless socket.more_parts?
       end
       self
     end

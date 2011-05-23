@@ -11,6 +11,6 @@ ZMQ = Java::OrgZeromq::ZMQ
 ZMQQueue = Java::OrgZeromq::ZMQQueue
 ZMQForwarder = Java::OrgZeromq::ZMQForwarder
 
-%W(context socket exception).each do |file|
+%W(context socket exception message clock).each do |file|
   require File.join("jzmq",file)
 end
