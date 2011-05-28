@@ -1,19 +1,21 @@
-class ZMQ
-  class Message
+module Zapi
+  class Zmessage
     attr_reader :error
-    def initialize
+    def initialize(part=nil)
       @buffer = []
+      @buffer << part if part
       @error = false
     end
     def unshift part
       @buffer.unshift part
     end
-    def shift part
-      @buffer.shift
+    def shift n = nil
+      n ? @buffer.shift(n) : @buffer.shift
     end
-    def pop part
-      @buffer.pop part
+    def pop n = nil
+      n ? @buffer.pop(n) : @buffer.pop
     end
+
     def push part
       @buffer.push part
     end
@@ -28,6 +30,10 @@ class ZMQ
     end
     def to_a
       @buffer
+    end
+    
+    def multiple?
+      @buffer.size > 1
     end
 
     def self.read(socket)
