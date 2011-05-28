@@ -11,7 +11,7 @@ spec = Gem::Specification.new do |s|
   s.homepage = nil
   s.require_path = 'lib'
   s.files = ["Rakefile","Readme.rdoc","lib/jzmq/zmq.jar","lib/jzmq.rb",
-  "lib/jzmq/context.rb","lib/jzmq/exception.rb","lib/jzmq/socket.rb","lib/jzmq/message.rb","lib/jzmq/clock.rb",
+  "lib/jzmq/context.rb","lib/jzmq/exception.rb","lib/jzmq/socket.rb",
   "lib/jzapi/context.rb","lib/jzapi/clock.rb","lib/jzapi/message.rb","lib/jzapi/thread.rb",
   "ext_bin/libjzmq.so.0.0.0"]
   s.test_files = []
