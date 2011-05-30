@@ -24,6 +24,44 @@ describe 'Zmq api clock features' do
   end
 end
 
+describe "Zmessage" do
+  it "should create a new empty message" do
+    msg = Zmessage.new
+    msg.to_a.should == []
+  end
+
+  it "should create a single part message" do
+    msg = Zmessage.new("Hello World")
+    msg.multiple?.should be_false
+    msg.shift.should == "Hello World"
+  end
+
+  it "should add/remove extra parts to the message" do
+    msg = Zmessage.new("Hello")
+    msg << "World"
+    msg.multiple?.should be_true
+    msg.to_a.join.should == "HelloWorld"
+    a,b = msg.shift(2)
+    a.should == "Hello"
+    b.should == "World"
+  end
+
+  it "should add extra parts to the message" do
+    msg = Zmessage.new
+    msg.unshift("Hello","World")
+    msg.multiple?.should be_true
+    msg.to_a.join.should == "HelloWorld"
+    msg.push("nice","to")
+    msg << "meet" << "you"
+    msg.to_a.should == %W[Hello World nice to meet you]
+  end
+
+  it "should create message and append parts in one line" do
+    msg = Zmessage.new("hello","world")
+    msg[1].should == "world"
+  end
+end
+
 describe 'Zcontext' do
   it "should create a wrapped context" do
     ctx = Zcontext.new
@@ -63,8 +101,9 @@ describe "Zthread" do
   it "should create a new communicable thread" do
     ctx = Zcontext.new
     pipe = Zthread.fork(ctx) do |ctx, pipe, args|
-      while (msg = pipe.recv_string).upcase != "STOP" do
-        pipe.send_string(msg.reverse)
+      while (msg = Zmessage.read(pipe))[0].upcase != "STOP" do
+        msg[0].reverse!
+        msg.write(pipe)
       end
       ctx.destroy 
     end
@@ -74,31 +113,5 @@ describe "Zthread" do
     reply = pipe.recv_string
     reply.should == "olleh"
     pipe.send_string("stop")
-
   end
 end
-
-describe "Zmessage" do
-  it "should create a new empty message" do
-    msg = Zmessage.new
-    msg.to_a.should == []
-  end
-
-  it "should create a single part message" do
-    msg = Zmessage.new("Hello World")
-    msg.multiple?.should be_false
-    msg.shift.should == "Hello World"
-  end
-
-  it "should add/remove extra parts to the message" do
-    msg = Zmessage.new("Hello")
-    msg << "World"
-    msg.multiple?.should be_true
-    msg.to_a.join.should == "HelloWorld"
-    a,b = msg.shift(2)
-    a.should == "Hello"
-    b.should == "World"
-  end
-end
-
-
