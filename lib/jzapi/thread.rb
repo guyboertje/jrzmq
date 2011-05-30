@@ -12,7 +12,8 @@ module Zapi
       _pipe = _ctx.socket_new(ZMQ::PAIR)
       _pipe.hwm = 1
       _pipe.connect(endpoint)
-      Thread.new(_ctx,_pipe,args,&block)
+      th = Thread.new(_ctx,_pipe,args,&block)
+      th.abort_on_exception = true
       pipe
     end
   end
