@@ -26,4 +26,10 @@ class ZMQ
   EVENTS = 15
   TYPE = 16
   LINGER = 17
+
+  module Settings
+    def self.context
+      @settings_ctx ||= Context.new(1)
+    end
+  end
 end
