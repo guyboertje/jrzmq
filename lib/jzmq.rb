@@ -5,7 +5,7 @@ end
 
 require 'java'
 
-require File.join("jzmq","zmq.jar")
+require File.join("jars","zmq.jar")
 
 ZMQ = Java::OrgZeromq::ZMQ
 ZMQQueue = Java::OrgZeromq::ZMQQueue

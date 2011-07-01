@@ -1,15 +1,21 @@
-class ZMQ
+module ZMQ
   class Context
-    def self.new(*args)
-       ZMQ.context(args.first || 1)
-    end
+
     def initialize(*args)
+      @ctx = JZMQ.context(args.first || 1)
     end
-    def terminate
-      term
+
+    def term
+      @ctx.term
     end
-    def close
-      term
+    alias :terminate :term
+
+    def socket(kind)
+      Socket.construct(@ctx,kind)
+    end
+
+    def poller(size=nil)
+      size ? @ctx.poller(size) : @ctx.poller
     end
   end
 
@@ -29,10 +35,6 @@ class ZMQ
   EVENTS = 15
   TYPE = 16
   LINGER = 17
-
-  POLLIN = 1
-  POLLOUT = 2
-  POLLERR = 4
 
   module Settings
     def self.context
