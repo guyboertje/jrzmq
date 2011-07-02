@@ -1,20 +1,5 @@
-unless RUBY_PLATFORM =~ /java/
-  error "This library is only compatible with a java-based ruby environment like JRuby."
-  exit 255
-end
-
-require 'java'
-
-require File.join("jars","zmq.jar")
-
-ZMQ = Java::OrgZeromq::ZMQ
-ZMQQueue = Java::OrgZeromq::ZMQQueue
-ZMQForwarder = Java::OrgZeromq::ZMQForwarder
-
-%W(context socket exception).each do |file|
-  require File.join("jzmq",file)
-end
-
-%W(clock context message thread).each do |file|
-  require File.join("jzapi",file)
+if RUBY_PLATFORM =~ /java/
+  require "jrzmq"
+else
+  require "rbzmq"
 end
