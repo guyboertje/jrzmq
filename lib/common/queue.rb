@@ -12,7 +12,7 @@ class ZMQQueue
   def run()
     until Thread.current[:stop] do
       begin
-        next if @poller.poll(250000) < 1
+        next if @poller.poll(500_000) < 1
         
         if @poller.pollin(0)
           begin
@@ -29,11 +29,12 @@ class ZMQQueue
             @in_sock.send_string(part, more ? ZMQ::SNDMORE : 0) unless part.nil?
           end until !more
         end
-
       rescue => e
-        Thread.current[:exception] = e
-        raise e
+        Thread.current[:queue_exception] = e
+        Thread.current[:stop] = true
       end
     end
+    @poller.unregister @in_sock
+    @poller.unregister @out_sock
   end
 end
