@@ -23,7 +23,10 @@ end
 require File.join(LIB_ROOT,"common","queue")
 
 module ZMQ
-  
+  def self.version
+    [JZMQ.version_major, JZMQ.version_minor, JZMQ.version_patch]
+  end
+
   HWM = 1
   SWAP = 3
   AFFINITY = 4
