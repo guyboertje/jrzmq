@@ -9,6 +9,7 @@ module ZMQ
     def initialize(ctx,kind)
       @sock = ctx.socket(kind)
     end
+    
     def close
       @sock.close
     end

@@ -9,32 +9,21 @@ rescue LoadError
   exit 255
 end
 
-Rjb::load(classpath = './jars/zmq.jar', jvmargs=[])
+LIB_ROOT = ::File.expand_path(::File.dirname(__FILE__)) + ::File::SEPARATOR
+
+Rjb::load(classpath = File.join(LIB_ROOT,"jars","zmq.jar"), jvmargs=[])
 
 JZMQ = Rjb::import('org.zeromq.ZMQ')
 
 #exception
 %W[context socket].each do |file|
-  require File.join('.',"rjbjzmq",file)
+  require File.join(LIB_ROOT,"rjbzmq",file)
 end
 
-require File.join("common","queue")
+require File.join(LIB_ROOT,"common","queue")
 
 module ZMQ
-  class Context
-    def self.new(*args)
-       ZMQ.context(args.first || 1)
-    end
-    def initialize(*args)
-    end
-    def terminate
-      term
-    end
-    def close
-      term
-    end
-  end
-
+  
   HWM = 1
   SWAP = 3
   AFFINITY = 4

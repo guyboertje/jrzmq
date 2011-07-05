@@ -28,6 +28,7 @@ spec = Gem::Specification.new do |s|
                ext_bin/libjzmq.so.0.0.0]
 
   s.add_dependency 'zmq'
+  s.add_dependency 'rjb'
 
   s.test_files = []
   s.has_rdoc = false

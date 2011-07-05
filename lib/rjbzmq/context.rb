@@ -9,7 +9,8 @@ module ZMQ
       @ctx.term
     end
     alias :terminate :term
-
+    alias :close :term
+    
     def socket(kind)
       Socket.construct(@ctx,kind)
     end
