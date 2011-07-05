@@ -14,18 +14,21 @@ spec = Gem::Specification.new do |s|
                Readme.rdoc
                lib/jzmq.rb
                lib/jars/zmq.jar
-               lib/jrzmq.rb 
+               lib/jrzmq.rb
                lib/jzmq/context.rb
                lib/jzmq/exception.rb
-               lib/jzmq/socket.rb 
+               lib/jzmq/socket.rb
                lib/jzapi/context.rb
                lib/jzapi/clock.rb
                lib/jzapi/message.rb
-               lib/jzapi/thread.rb 
+               lib/jzapi/thread.rb
                lib/rbzmq.rb
                lib/zmq/zmq.rb
                lib/common/queue.rb
                ext_bin/libjzmq.so.0.0.0]
+
+  s.add_dependency 'zmq'
+
   s.test_files = []
   s.has_rdoc = false
 end

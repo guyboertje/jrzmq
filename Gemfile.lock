@@ -1,13 +1,13 @@
-GIT
-  remote: https://guyboertje@github.com/guyboertje/rbzmq.git
-  revision: ebc12bde470c03668d923bd17dca5fa829f4dc11
-  specs:
-    zmq (2.1.3)
-
 PATH
   remote: .
   specs:
     jzmq (0.0.7)
+      zmq
+
+PATH
+  remote: /home/guy/my-dev/rbzmq
+  specs:
+    zmq (2.1.3)
 
 GEM
   remote: http://rubygems.org/
@@ -19,4 +19,3 @@ PLATFORMS
 
 DEPENDENCIES
   jzmq!
-  zmq!

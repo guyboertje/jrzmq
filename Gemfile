@@ -2,7 +2,8 @@ source "http://rubygems.org"
 
 gemspec
 
-platform :ruby do
-  gem 'zmq', :git => 'https://guyboertje@github.com/guyboertje/rbzmq.git'
+platform :jruby do
+  @dependencies.delete_if {|d| d.name == 'zmq' }
 end
 
+#gem 'zmq', :git => 'https://guyboertje@github.com/guyboertje/rbzmq.git'
