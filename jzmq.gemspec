@@ -2,7 +2,7 @@
 
 spec = Gem::Specification.new do |s|
   s.name = 'jzmq'
-  s.version = '0.0.7'
+  s.version = '0.0.8'
   s.authors = ['Guy Boertje']
   s.email = 'gboertje@gowebtop.com'
   s.date = '2011-04-25'
@@ -28,6 +28,7 @@ spec = Gem::Specification.new do |s|
                ext_bin/libjzmq.so.0.0.0]
 
   s.add_dependency 'zmq'
+  s.add_dependency 'rjb'
 
   s.test_files = []
   s.has_rdoc = false

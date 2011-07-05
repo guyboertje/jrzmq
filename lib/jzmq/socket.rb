@@ -1,13 +1,13 @@
 class ZMQ
   class Socket
     def recv_string(flags = 0)
-      str = recv(flags)
+      str = recvmsg(flags)
       return nil if str.nil?
       String.from_java_bytes(str)
     end
 
     def send_string(str,flags = 0)
-      send(str.to_java_bytes,flags)
+      sendmsg(str.to_java_bytes,flags)
     end
 
     def more_parts?
