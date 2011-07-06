@@ -1,4 +1,4 @@
-if RUBY_VERSION =~ /1\.8\.?/
+if RUBY_VERSION < "1.9.0"
   puts "You might have trouble using this library without proper threading support"
 end
 
@@ -47,6 +47,21 @@ module ZMQ
   POLLIN = 1
   POLLOUT = 2
   POLLERR = 4
+
+  NOBLOCK = 1
+  DONTWAIT = 1
+  SNDMORE = 2
+  PAIR = 0
+  PUB = 1
+  SUB = 2
+  REQ = 3
+  REP = 4
+  XREQ = 5
+  DEALER = 5
+  XREP = 6
+  ROUTER = 6
+  PULL = 7
+  PUSH = 8
 
   module Settings
     def self.context

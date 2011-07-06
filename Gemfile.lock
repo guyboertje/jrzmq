@@ -1,17 +1,15 @@
 PATH
   remote: .
   specs:
-    jzmq (0.0.7)
+    jzmq (0.0.8)
+      rjb
       zmq
-
-PATH
-  remote: /home/guy/my-dev/rbzmq
-  specs:
-    zmq (2.1.3)
 
 GEM
   remote: http://rubygems.org/
   specs:
+    rjb (1.3.4)
+    zmq (2.1.3)
 
 PLATFORMS
   java

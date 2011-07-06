@@ -52,8 +52,8 @@ module ZMQ
     def pollin(slot)
       @poller.pollin slot
     end
-    def pollin(slot)
-      @poller.pollin slot
+    def pollout(slot)
+      @poller.pollout slot
     end
 
     def register(skt, events = -1)
