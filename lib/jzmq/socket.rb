@@ -34,5 +34,13 @@ class ZMQ
         get_long_sockopt(option_name)
       end
     end
+
+    def send_string_after(str, timeout)
+      Thread.new(timeout,str) do |t,m|
+        sleep t
+        self.send_string(m)
+      end
+    end
+
   end
 end
