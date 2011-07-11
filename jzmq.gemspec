@@ -13,7 +13,8 @@ spec = Gem::Specification.new do |s|
   s.files = %W[Rakefile
                Readme.rdoc
                lib/jzmq.rb
-               lib/jars/zmq.jar
+               lib/jars/linux/zmq.jar
+               lib/jars/osx/zmq.jar
                lib/jrzmq.rb
                lib/jzmq/context.rb
                lib/jzmq/exception.rb
@@ -25,6 +26,7 @@ spec = Gem::Specification.new do |s|
                lib/rbzmq.rb
                lib/zmq/zmq.rb
                lib/common/queue.rb
+               ext_bin/libjzmq.0.0.0.dylib
                ext_bin/libjzmq.so.0.0.0]
 
   unless RUBY_PLATFORM =~ /java/

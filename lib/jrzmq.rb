@@ -1,7 +1,14 @@
 
 require 'java'
+require 'rbconfig'
 
-require File.join("jars","zmq.jar")
+if Config::CONFIG['host_os'] == 'darwin' && Config::CONFIG['host_cpu'] == 'x86_64'
+  os = "osx"
+else
+  os = "linux"
+end
+
+require File.join("jars", os, "zmq.jar")
 
 ZMQ = Java::OrgZeromq::ZMQ
 #ZMQQueue = Java::OrgZeromq::ZMQQueue
