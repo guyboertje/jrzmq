@@ -12,25 +12,27 @@ spec = Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.files = %W[Rakefile
                Readme.rdoc
-               lib/jzmq.rb
-               lib/jars/zmq.jar
+               ext_bin/libjzmq.so.0.0.0
                lib/jrzmq.rb
+               lib/jzmq.rb
+               lib/rbzmq.rb
+               lib/rjbz.rb
+               lib/common/queue.rb
+               lib/jars/zmq.jar
+               lib/jzapi/clock.rb
+               lib/jzapi/context.rb
+               lib/jzapi/message.rb
+               lib/jzapi/thread.rb
                lib/jzmq/context.rb
                lib/jzmq/exception.rb
                lib/jzmq/socket.rb
-               lib/jzapi/context.rb
-               lib/jzapi/clock.rb
-               lib/jzapi/message.rb
-               lib/jzapi/thread.rb
-               lib/rbzmq.rb
-               lib/zmq/zmq.rb
-               lib/common/queue.rb
-               ext_bin/libjzmq.so.0.0.0]
+               lib/rjbzmq/context.rb
+               lib/rjbzmq/socket.rb
+               lib/zmq/zmq.rb]
 
   unless RUBY_PLATFORM =~ /java/
     s.add_dependency 'rjb'
   end
 
   s.test_files = []
-  s.has_rdoc = false
 end

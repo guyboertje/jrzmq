@@ -20,7 +20,19 @@ libjzmq.so.0.0.0 was compiled on an amd 64 bit ubuntu box.  If you get errors
 you will have to compile it yourself. You will need to git clone the source
 repo git://github.com/zeromq/jrzmq.git
 
-The zmq.jar java code uses JNI to interact with libjzmq.so (symlink)
+The zmq.jar java code uses JNI to interact with libjzmq.so (symlink).
+
+* OSX
+
+Use Homebrew to install zeromq (currently 2.1.7), then copy the libjzmq.dylib into
+the zeromq lib folder.
+
+brew install zeromq
+cp /path/to/jrzmq/ext_bin/libjzmq.dylib /usr/local/Cellar/zeromq/2.1.7/lib/libjzmq.dylib
+
+Finally, add the zeromq lib folder to your DYLD_LIBRARY_PATH, e.g.:
+
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/Cellar/zeromq/2.1.7/lib:$JAVA_HOME/lib
 
 == PERFORMANCE
 
