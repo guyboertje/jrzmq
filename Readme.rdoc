@@ -18,7 +18,7 @@ Look at how the symlinking is done for libzmq.so.1.0.0
 
 libjzmq.so.0.0.0 was compiled on an amd 64 bit ubuntu box.  If you get errors
 you will have to compile it yourself. You will need to git clone the source
-repo git://github.com/zeromq/jrzmq.git
+repo git://github.com/zeromq/jzmq.git
 
 The zmq.jar java code uses JNI to interact with libjzmq.so (symlink).
 
